@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Bricolage Grotesque', sans-serif;
+  --font-sans: 'Instrument Sans', sans-serif;
+  --color-ink: #161c3f;
+  --color-chalk: #eceff3;
+  --color-tape: #f2c12e;
+  --color-alert: #d23b3b;
+  --color-ok: #2e8b57;
+  --color-line: #cfd5e0;
+}
+
+body { margin: 0; background: var(--color-chalk); color: var(--color-ink); font-family: var(--font-sans); }
+h1, h2, h3 { font-family: var(--font-display); }
+.num { font-variant-numeric: tabular-nums; }
+
+/* Measuring-tape motif: header rule and stock bars */
+.tape-rule {
+  height: 10px;
+  background-color: var(--color-tape);
+  background-image: repeating-linear-gradient(90deg, rgba(22,28,63,.55) 0 1px, transparent 1px 10px);
+}
+.tape-fill {
+  background-color: var(--color-tape);
+  background-image: repeating-linear-gradient(90deg, rgba(22,28,63,.5) 0 1px, transparent 1px 6px);
+}
+.tape-fill.low {
+  background-color: var(--color-alert);
+  background-image: repeating-linear-gradient(90deg, rgba(255,255,255,.55) 0 1px, transparent 1px 6px);
+}
