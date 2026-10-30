@@ -20,7 +20,7 @@ async function notifyIfLow(fabric, wasLow) {
 
   const staff = await User.findAll({ where: { role: ['admin', 'store_manager'] } });
   const recipients = new Set(staff.map((u) => u.email));
-  if (process.env.MAIL_TO) recipients.add(process.env.MAIL_TO);
+  if (process.env.MAIL_TO) process.env.MAIL_TO.split(',').map((e) => e.trim()).filter(Boolean).forEach((e) => recipients.add(e));
 
   const subject = `Low stock: ${fabric.color} ${fabric.fabric_type}`;
   const text =
